@@ -1,10 +1,18 @@
 #include <stdio.h>
 
-int main() {
+int main(){
 
-    const float PI = 3.14159;
+    char name[25];
+    int age;
 
-    printf("%.5f", PI);
+    printf("\nWhat\'s your name? ");
+    // scanf("%s", &name);
+    fgets(name, 25, stdin); // stdin for standard input. fgets() automaticaly add new line!!!
+
+    printf("How old are you? ");
+    scanf("%d", &age);
+
+    printf("Hi, %s. You are %d years old", name, age);
 
     return 0;
 }
