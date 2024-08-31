@@ -1,21 +1,14 @@
 #include <stdio.h>
 
-void birthday(char x[], int y) {
-    printf("\nHappy birthday %s!", x);
-    printf("\nYou are %d years old!", y);
+double square(double x) {
+    return x * x;
 }
 
 int main() {
-    char name[12];
-    int age;
 
-    printf("Enter your first name: ");
-    scanf_s("%s", &name);
+    double x = square(3.14);
 
-    printf("Enter you age: ");
-    scanf("%d", &age);
-
-    birthday(name, age);
+    printf("%lf", x);
 
     return 0;
 }
