@@ -1,44 +1,36 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main() {
-    char grade;
 
-    printf("\nEnter a letter grade: ");
-    scanf("%c", &grade);
+    float temp = 25;
+    bool sunny = false;
 
-    // Instead of this:
-    /*if(grade == 'A') {
-        printf("Perfect!\n");
-    } else if (grade == 'B') {
-        printf("You did good!\n");
-    } else if (grade == 'C') {
-        printf("You did okay\n");
-    } else if (grade == 'D') {
-        printf("At least it\'s not an F\n");
-    } else if (grade == 'F') {
-        printf("YOU FAILED\n");
+    // Logical 0perator AND &&
+
+    printf("This is a result of logical operator AND");
+    if (temp >= 0 && temp <= 30 && sunny) {
+        printf("\nThe weather is good!\n\n");
     } else {
-        printf("That\'s not a valid grade\n");
-    }*/
-
-    // We can use switch (test for equality against many cases)
-    switch(grade){
-        case 'A':
-            printf("Perfect!\n");
-            break;
-        case 'B':
-            printf("You did good!\n");
-            break;
-        case 'C':
-            printf("You did okay\n");
-            break;
-        case 'D':
-            printf("At least it\'s not an F\n");
-            break;
-        case 'F':
-            printf("YOU FAILED\n");
-            break;
-        default:
-            printf("That\'s not a valid grade\n");
+        printf("\nThe weather is bad!\n\n");
     }
+
+    // Logical Operator OR ||
+    printf("This is a result of logical operator OR");
+    if (temp <= 0 || temp >= 30) {
+        printf("\nThe weather is bad!\n\n");
+    } else {
+        printf("\nThe weather is good!\n\n");
+    }
+
+    // Logical Operator NOT !
+    bool rainy = true;
+    printf("This is a result of logical operator NOT");
+    if (!rainy) {
+        printf("\nIt\'s rainy outside!\n\n");
+    } else {
+        printf("\nIt\'s sunny outside!\n\n");
+    }
+
+    return 0;
 }
