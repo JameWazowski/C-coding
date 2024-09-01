@@ -1,18 +1,23 @@
 #include <stdio.h>
 
-int findMax(int x, int y) {
-    // if (x > y) {
-    //     return x;
-    // } else {
-    //     return y;
-    // }
-    return (x > y) ? x : y;
-}
+void hello(char[], int); // Function prototype
 
 int main() {
 
-    int x = findMax(12, 65);
-    printf("%d", x);
+    char name[15];
+    int age;
+
+    printf("Please enter your name: ");
+    scanf("%s", &name);
+    printf("Please enter your age: ");
+    scanf("%d", &age);
+
+    hello(name, age);
 
     return 0;
+}
+
+void hello(char name[], int age) {
+    printf("\nHello %s", name);
+    printf("\nYou are %d years old", age);
 }
