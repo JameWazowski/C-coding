@@ -1,43 +1,35 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
 
-    int numbers1[][3] = {
-                       {1, 2, 3}, 
-                       {4, 5, 6}
-                      };
+    char cars[][12] = {"Mustang", "Corvette", "Camaro"};
 
-    int numbers2[3][3];
-
-    int rows = sizeof(numbers2) / sizeof(numbers2[0]);
-    int columns = sizeof(numbers2[0]) / sizeof(numbers2[0][0]);
-
-    printf("2D Array\n");
-    printf("--------\n");
-    printf("sizeof(int) = %d - size of one variable with type int\n", sizeof(int));
-    printf("sizeof(numbers2) = %d - size of one entire array\n", sizeof(numbers2));
-    printf("sizeof(numbers2[0]) = %d - size of one row from an array\n", sizeof(numbers2[0]));
-    printf("sizeof(numbers2[0][0]) = %d - size of one variable from an array\n", sizeof(numbers2[0][0]));
-    printf("---------------------------------------------------------------\n");
-    printf("So,\nNumber of rows: %d;\nNumber of columns: %d\n", rows, columns);
-    printf("--------------------\nArray:\n");
-
-    numbers2[0][0] = 7;
-    numbers2[0][1] = 8;
-    numbers2[0][2] = 9;
-    numbers2[1][0] = 10;
-    numbers2[1][1] = 11;
-    numbers2[1][2] = 12;
-    numbers2[2][0] = 13;
-    numbers2[2][1] = 14;
-    numbers2[2][2] = 15;
-
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; j++) {
-            printf("%d\t", numbers2[i][j]);
-        }
-        printf("\n");
+    printf("Sizes of everyting in program (in bytes)\n");
+    printf("----------------------------------------\n");
+    printf("sizeof(cars)                 = %d\n", sizeof(cars));
+    printf("sizeof(cars[0])              = %d\n", sizeof(cars[0]));
+    printf("sizeof(cars[1])              = %d\n", sizeof(cars[1]));
+    printf("sizeof(cars[2])              = %d\n", sizeof(cars[2]));
+    printf("---------------------------------\n");
+    printf("sizeof(cars)/sizeof(cars[0]) = %d - number of elements in array\n", sizeof(cars)/sizeof(cars[0]));
+    
+    printf("\nArray without any changes\n");
+    printf("-------------------------\n");
+    for (int i = 0; i < sizeof(cars)/sizeof(cars[0]); i++) {
+        printf("Car %d is %s\n", i+1, cars[i]);
     }
+
+    printf("\nArray after change\n");
+    printf("------------------\n");
+
+    strcpy(cars[0], "Porsche");
+
+    for (int i = 0; i < sizeof(cars)/sizeof(cars[0]); i++) {
+        printf("Car %d is %s\n", i+1, cars[i]);
+    }
+
+    printf("\n");
 
     return 0;
 }
