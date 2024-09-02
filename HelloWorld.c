@@ -1,35 +1,52 @@
 #include <stdio.h>
 #include <string.h>
 
+
 int main() {
 
-    char cars[][12] = {"Mustang", "Corvette", "Camaro"};
+    // Characters swapping
+    char x = 'X';
+    char y = 'Y';
+    char temp;
 
-    printf("Sizes of everyting in program (in bytes)\n");
-    printf("----------------------------------------\n");
-    printf("sizeof(cars)                 = %d\n", sizeof(cars));
-    printf("sizeof(cars[0])              = %d\n", sizeof(cars[0]));
-    printf("sizeof(cars[1])              = %d\n", sizeof(cars[1]));
-    printf("sizeof(cars[2])              = %d\n", sizeof(cars[2]));
-    printf("---------------------------------\n");
-    printf("sizeof(cars)/sizeof(cars[0]) = %d - number of elements in array\n", sizeof(cars)/sizeof(cars[0]));
-    
-    printf("\nArray without any changes\n");
-    printf("-------------------------\n");
-    for (int i = 0; i < sizeof(cars)/sizeof(cars[0]); i++) {
-        printf("Car %d is %s\n", i+1, cars[i]);
-    }
+    printf("Chars swapping\n");
+    printf("==============\n");
+    printf("Values before swapping\n");
+    printf("----------------------\n");
+    printf("x = %c\n", x);
+    printf("y = %c\n\n", y);
 
-    printf("\nArray after change\n");
-    printf("------------------\n");
+    // Swapping operations for characters
+    temp = x;
+    x = y;
+    y = temp;
 
-    strcpy(cars[0], "Porsche");
+    printf("Values after swapping\n");
+    printf("---------------------\n");
+    printf("x = %c\n", x);
+    printf("y = %c\n\n", y);
 
-    for (int i = 0; i < sizeof(cars)/sizeof(cars[0]); i++) {
-        printf("Car %d is %s\n", i+1, cars[i]);
-    }
+    // Strings swapping
+    char a[15] = "jame";
+    char b[15] = "wazowski";
+    char temp_string[15];
 
-    printf("\n");
+    printf("Strings swapping\n");
+    printf("================\n");
+    printf("Values before swapping\n");
+    printf("----------------------\n");
+    printf("a[] = \"%s\"\n", a);
+    printf("b[] = \"%s\"\n\n", b);
+
+    // Swapping operations for strings
+    strcpy(temp_string, a);
+    strcpy(a, b);
+    strcpy(b, temp_string);
+
+    printf("Values after swaapping\n");
+    printf("----------------------\n");
+    printf("a[] = \"%s\"\n", a);
+    printf("b[] = \"%s\"\n\n", b);
 
     return 0;
 }
