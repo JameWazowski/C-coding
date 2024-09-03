@@ -1,52 +1,31 @@
 #include <stdio.h>
-#include <string.h>
 
+void sort(int array[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - 1; j++) {
+
+        }
+    }
+}
 
 int main() {
+    int array[] = {9, 1, 8, 2, 7, 3, 6, 4, 5};
+    int size = sizeof(array)/sizeof(array[0]);
 
-    // Characters swapping
-    char x = 'X';
-    char y = 'Y';
-    char temp;
-
-    printf("Chars swapping\n");
+    printf("Sizes in bytes\n");
     printf("==============\n");
-    printf("Values before swapping\n");
-    printf("----------------------\n");
-    printf("x = %c\n", x);
-    printf("y = %c\n\n", y);
+    printf("sizeof(array) = %d\n", sizeof(array));
+    printf("sizeof(array[0]) = %d\n", sizeof(array[0]));
 
-    // Swapping operations for characters
-    temp = x;
-    x = y;
-    y = temp;
+    printf("Array before sorting - ");
 
-    printf("Values after swapping\n");
-    printf("---------------------\n");
-    printf("x = %c\n", x);
-    printf("y = %c\n\n", y);
+    for (int i = 0; i < size; i++) {
+        printf("%d ", array[i]);
+    }
 
-    // Strings swapping
-    char a[15] = "jame";
-    char b[15] = "wazowski";
-    char temp_string[15];
+    printf("\n");
 
-    printf("Strings swapping\n");
-    printf("================\n");
-    printf("Values before swapping\n");
-    printf("----------------------\n");
-    printf("a[] = \"%s\"\n", a);
-    printf("b[] = \"%s\"\n\n", b);
 
-    // Swapping operations for strings
-    strcpy(temp_string, a);
-    strcpy(a, b);
-    strcpy(b, temp_string);
-
-    printf("Values after swaapping\n");
-    printf("----------------------\n");
-    printf("a[] = \"%s\"\n", a);
-    printf("b[] = \"%s\"\n\n", b);
 
     return 0;
 }
