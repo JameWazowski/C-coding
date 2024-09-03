@@ -1,19 +1,30 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct {
-    char name[25];
-    char password[16];
-    int id;
-} User;
+struct Student {
+    char name[12];
+    float gpa;
+};
 
 int main() {
 
-    User user1 = {"Jame", "123456789", 12345};
-    User user2 = {"Wazowski", "987654321", 93423};
+    struct Student student1 = {"Alice", 3.0};
+    struct Student student2 = {"Bob", 2.5};
+    struct Student student3 = {"Eva", 3.5};
+    struct Student student4 = {"Jame", 4.0};
 
-    printf("User 1 - %s, %s, %d\n", user1.name, user1.password, user1.id);
-    printf("User 2 - %s, %s, %d\n", user2.name, user2.password, user2.id);
+    struct Student students[] = {student1, student2, student3, student4};
+
+    printf("\nsizeof(students) = %d\n", sizeof(students));
+    printf("sizeof(students[0]) = %d\n", sizeof(students[0]));
+    printf("So, quantity of array elements = %d\n", sizeof(students)/sizeof(students[0]));
+    printf("==================================\n");
+
+    for (int i = 0; i < sizeof(students)/sizeof(students[0]); i++) {
+        printf("Student %d\t-\t%s\t-\t%.2f\n", i+1, students[i].name, students[i].gpa);
+    }
+
+    printf("\n");
 
     return 0;
 }
