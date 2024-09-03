@@ -1,63 +1,26 @@
 #include <stdio.h>
+#include <string.h>
 
-void bubble_sort(int array[], int size) {
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = 0; j < size - 1; j++) {
-            if (array[j] > array[j+1]) {
-                int temp = array[j];
-                array[j] = array[j+1];
-                array[j+1] = temp;
-            }
-        }
-    }
-}
-
-void reversed_bubble_sort(int array[], int size) {
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = 0; j < size - 1; j++) {
-            if (array[j] < array[j+1]) {
-                int temp = array[j];
-                array[j] = array[j+1];
-                array[j+1] = temp;
-            }
-        }
-    }
-}
+struct Player {
+    char name[12];
+    int score;
+};
 
 int main() {
-    int array[] = {9, 1, 8, 2, 7, 3, 6, 4, 5};
-    int size = sizeof(array)/sizeof(array[0]);
+    // struct
 
-    printf("Sizes in bytes\n");
-    printf("==============\n");
-    printf("sizeof(array) = %d\n", sizeof(array));
-    printf("sizeof(array[0]) = %d\n", sizeof(array[0]));
+    struct Player player1;
+    struct Player player2;
 
-    printf("Array before sorting - ");
+    strcpy(player1.name, "Jame");
+    player1.score = 8;
 
-    for (int i = 0; i < size; i++) {
-        printf("%d ", array[i]);
-    }
+    strcpy(player2.name, "Wazowski");
+    player2.score = 10;
 
-    printf("\n");
-
-    printf("Array after sorting - ");
-    bubble_sort(array, size);
-
-    for (int i = 0; i < size; i++) {
-        printf("%d ", array[i]);
-    }
-
-    printf("\n");
-
-    printf("Reverse sorting - ");
-    reversed_bubble_sort(array, size);
-
-    for (int i = 0; i < size; i++) {
-        printf("%d ", array[i]);
-    }
-
-    printf("\n");
+    printf("Player 1\t|\t Score\n");
+    printf("%s\t\t|\t    %d\n", player1.name, player1.score);
+    printf("%s\t|\t   %d\n", player2.name, player2.score);
 
     return 0;
 }
