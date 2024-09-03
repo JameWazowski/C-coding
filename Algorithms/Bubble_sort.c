@@ -32,8 +32,9 @@ int main() {
     printf("==============\n");
     printf("sizeof(array) = %d\n", sizeof(array));
     printf("sizeof(array[0]) = %d\n", sizeof(array[0]));
+    printf("====================\n\n");
 
-    printf("Array before sorting - ");
+    printf("Array before sorting\t - ");
 
     for (int i = 0; i < size; i++) {
         printf("%d ", array[i]);
@@ -41,7 +42,7 @@ int main() {
 
     printf("\n");
 
-    printf("Array after sorting - ");
+    printf("Array after sorting\t - ");
     bubble_sort(array, size);
 
     for (int i = 0; i < size; i++) {
@@ -50,7 +51,7 @@ int main() {
 
     printf("\n");
 
-    printf("Reverse sorting - ");
+    printf("Reverse sorting\t\t - ");
     reversed_bubble_sort(array, size);
 
     for (int i = 0; i < size; i++) {
