@@ -33,7 +33,7 @@ int main() {
     printf("\n pointer_A = %p\n", pointer_A);
     printf("&pointer_A = %p\n", &pointer_A);
 
-    // Convert pointer into long
+    // Convert pointer into long long
     ll converted_pointer_A = (ll)pointer_A;
     printf("\nconverted_pointer_A = %lld\n", converted_pointer_A);
 
