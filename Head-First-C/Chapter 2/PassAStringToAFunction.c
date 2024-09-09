@@ -2,7 +2,6 @@
 
 void fortune_cookie(char msg[], int size) {
     printf("Message reads: %s\n", msg);
-    
     printf("The message string is stored at: %p\n", msg);
     
     // For output every single character <-- It will display only first word (8 symbols)
