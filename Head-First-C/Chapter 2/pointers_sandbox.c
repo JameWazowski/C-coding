@@ -1,41 +1,58 @@
 #include <stdio.h>
+#include <stdbool.h>
+
+void array_of_drinks(int drinks[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("Order %i: \t%i drinks\n", i+1, drinks[i]);
+        printf("Order %i: \t%i drinks\n\n", i+1, *(drinks + i));
+    }
+}
+
+void pointers_of_drinks(int drinks[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("Order %i: \t%p address\n", i+1, &drinks[i]);
+        printf("Order %i: \t%p address\n\n", i+1, drinks + i);
+    }
+}
 
 int main() {
+    int drinks[] = {4, 2, 3};
 
-    char s[] = "How big is it?";
-    char *t = s;
+    printf("========================================\n");
 
-    printf("Size of char[] is %8d\n", sizeof(s));
-    printf("Size of char *t is %7d\n", sizeof(t));
+    printf("1st order: %i drinks\n", drinks[0]);
+    printf("1st order: %i drinks\n", *drinks);
 
-    printf("\nchar t = %17p\n", t);
+    printf("========================================\n");
 
-    printf("&s = %21p\ns = %22p\n", &s, s);
+    printf("Pointer of drinks is \t%p\n", &drinks);
+    printf("Pointer of drinks[0] is %p\n", &drinks[0]);
+    printf("Pointer of *drinks is \t%p\n", &(*drinks));
 
-    // The address of the s array is just s
-    if (&s == s)
-        printf("\t\t   &s == s\n");
-    else
-        printf("\t\t   &s != s\n");
+    printf("========================================\n");
 
-    printf("\nt = %22p\n&t = %21p\n", t, &t);
+    printf("True is equal  %i\n", true);
+    printf("False is equal %i\n", false);
 
-    // But address of the t is not a t
-    if (&t == t)
-        printf("\t\t   &t == t\n");
-    else
-        printf("\t\t   &t != t\n");
+    printf("========================================\n");
 
-    // We can change the adderss that pointer variable holds 
-    int *ptr;
-    int x = 10;
-    ptr = &x;
-    printf("\n(before) int ptr = %p\n", ptr);
+    printf("drinks[0] == *drinks - %d\n", drinks[0] == *drinks);
+
+    printf("========================================\n");
+
+    printf("3rd order: %i drinks\n", drinks[2]);
+    printf("3rd order: %i drinks\n", *(drinks + 2));
+
+    printf("========================================\n");
+
+    int drinks_for_function[] = {13, 45, 88, 34, 85, 92, 7, 33, 108, 27};
+    int size = sizeof(drinks_for_function) / sizeof(int);
     
-    ptr = NULL;
-    printf("(after)  int ptr = %p\n", ptr);
+    printf("\n==Array_of_drinks() function==\n");
+    array_of_drinks(drinks_for_function, size);
 
-    // but we cannot change the address stored in an array variable
+    printf("\n=Pointers_of_drinks() function=\n");
+    pointers_of_drinks(drinks_for_function, size);
 
     return 0;
 }
