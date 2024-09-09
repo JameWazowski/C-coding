@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+typedef long long ll;
+
 void change_value(int *pB) {
     *pB = *pB + 3;
 }
@@ -27,6 +29,13 @@ int main() {
     printf("Now our variable b is %i\n", b);
     printf("Address of int b is %p\n", &b);                 // <-- The same address in output
     printf("Address of int *pointer_B %p\n", pointer_B);    // <-- The same address in output
+
+    printf("\n pointer_A = %p\n", pointer_A);
+    printf("&pointer_A = %p\n", &pointer_A);
+
+    // Convert pointer into long
+    ll converted_pointer_A = (ll)pointer_A;
+    printf("\nconverted_pointer_A = %lld\n", converted_pointer_A);
 
     return 0;
 }

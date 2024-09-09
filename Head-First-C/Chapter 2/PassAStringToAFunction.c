@@ -5,7 +5,7 @@ void fortune_cookie(char msg[], int size) {
     
     printf("The message string is stored at: %p\n", msg);
     
-    // For output every single character <-- It will display only first word
+    // For output every single character <-- It will display only first word (8 symbols)
     for (int i = 0; i < size; i ++) {
         printf("The %i character (%c) is stored at %p\n", i+1, msg[i], &msg[i]);
     }
