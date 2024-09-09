@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-void fortune_cookie(char msg[]) {
+void fortune_cookie(char msg[], int size) {
     printf("Message reads: %s\n", msg);
     
     printf("The message string is stored at: %p\n", msg);
     
     // For output every single character <-- It will display only first word
-    for (int i = 0; i < sizeof(msg); i ++) {
+    for (int i = 0; i < size; i ++) {
         printf("The %i character (%c) is stored at %p\n", i+1, msg[i], &msg[i]);
     }
     
@@ -17,7 +17,7 @@ void fortune_cookie(char msg[]) {
 int main() {
 
     char quote[] = "Cookies make you fat";
-    fortune_cookie(quote);
+    fortune_cookie(quote, sizeof(quote));
     printf("\nWithout function\n");
     printf("The quote string is stored at: %p\n", quote);
 
