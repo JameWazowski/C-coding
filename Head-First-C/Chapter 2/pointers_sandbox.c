@@ -2,61 +2,24 @@
 
 int main() {
 
-    int doses[] = {1, 3, 2, 1000};
-    printf("Issue dose %i\n", 3[doses]);
+    char first_name[20];
+    char last_name[20];
+    printf("Enter your first and last name: ");
+    scanf("%19s %19s", first_name, last_name);
 
-    int result = 0;
+    int age;
+    printf("Enter your age: ");
+    scanf("%i", &age);
 
-    if (doses[3] == *(doses + 3)) {
-        printf("doses[3] == *(doses + 3)\n");
-        result += 1;
-    } else {
-        printf("doses[3] != *(doses + 3)\n");
-    }
+    printf("\nYour name is %s %s\n", first_name, last_name);
+    printf("Your age is %i\n", age);
 
-    if (*(doses + 3) == *(3 + doses)) {
-        printf("*(doses + 3) == *(3 + doses)\n");
-        result += 2;
-    } else {
-        printf("*(doses + 3) != *(3 + doses)\n");
-    }
+    printf("\nAddress of first_name array is %p\n", &first_name);
+    printf("Address of  last_name array is %p\n", &last_name);
+    printf("Address of              age is %p\n", &age);
 
-    if (*(3 + doses) == 3[doses]) {
-        printf("*(3 + doses) == 3[doses]\n");
-        result += 4;
-    } else {
-        printf("*(3 + doses) != 3[doses]\n");
-    }
+    printf("\nSize of first_name is %i\n", sizeof(first_name));
+    printf("Size of  last_name is %i\n", sizeof(last_name));
 
-    printf("\nRESULTS\n");
-    switch(result){
-        case 0:
-            printf("All conditions are false\n");
-            break;
-        case 1:
-            printf("Only the first condition is true\n");
-            break;
-        case 2:
-            printf("Only the second condition is true\n");
-            break;
-        case 3:
-            printf("The first and the second conditions are true\n");
-            break;
-        case 4:
-            printf("Only the third condition is true\n");
-            break;
-        case 5:
-            printf("The first and the third conditions are true\n");
-            break;
-        case 6:
-            printf("The second and the third conditions are true\n");
-            break;
-        case 7:
-            printf("All conditions are true\n");
-            printf("So, doses[3] == *(doses + 3) == *(3 + doses) == 3[doses]\n");
-            break;
-        default:
-            printf("Unpredictable error\n");
-    }
     return 0;
 }
