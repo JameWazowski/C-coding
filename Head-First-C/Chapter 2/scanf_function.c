@@ -4,7 +4,9 @@ int main() {
 
     char food[10];
     printf("Enter favorite food: ");
-    scanf("%9s", food);;
+    
+    fgets(food, sizeof(food), stdin); // More safety than scanf()
+
     printf("Favorite food: %s\n", food);
 
     for(int i = 0; i < sizeof(food); i++) {
