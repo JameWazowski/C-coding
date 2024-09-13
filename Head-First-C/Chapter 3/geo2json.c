@@ -9,11 +9,27 @@ int main() {
 
     puts("{");
     puts("\t\"data\": [");
-    while (scanf("%f,%f,%79s[^\n", &latitude, &longitude, info) == 3) {
+    while (scanf("%f,%f,%79s\n", &latitude, &longitude, info) == 3) {
+        
+        if (latitude < -90.0 || latitude > 90.0) {
+            fprintf(stderr, "Error message: latitude is %f\n", latitude);
+            puts("\n\t]");
+            puts("}");
+            return 2;
+        }
+
+        if (longitude < -180.0 || longitude > 180.0) {
+            fprintf(stderr, "Error message: longitude is %f\n", longitude);
+            puts("\n\t]");
+            puts("}");
+            return 2;
+        }
+        
         if (started)
             printf(",\n");
         else 
             started = 1;
+
         printf("\t\t{\"latitude\": %f, \"longitude\": %f, \"info\": \"%s\"}", latitude, longitude, info);
     }
 
