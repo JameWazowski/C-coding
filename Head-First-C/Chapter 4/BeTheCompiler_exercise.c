@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 float mercury_day_in_earth_days();
-int hours_in_an_earth_day();
 
 int main() {
     float length_of_day = mercury_day_in_earth_days();
@@ -20,5 +19,5 @@ int hours_in_an_earth_day() {
 }
 
 // You can compile this code +
-// You should display a warning -
+// You should display a warning +
 // The program will work +
