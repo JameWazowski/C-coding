@@ -1,43 +1,43 @@
 #include <stdio.h>
 
+struct preferences {
+    const char *food;
+    float exercise_hours;
+};
+
 struct fish {
     const char *name;
     const char *species;
     int teeth;
     int age;
+    struct preferences care;
 };
 
 void catalog(struct fish f) {
-    printf("%s is a %s with %i. He is %i\n", f.name, f.species, f.teeth, f.age);
+    printf("%s is a %s with %i. He is %i. He loves %s and work out %.1f hours per day\n", f.name, f.species, f.teeth, f.age, f.care.food, f.care.exercise_hours);
 }
 
 void label(struct fish f) {
-    printf("Name: %s\nSpecies: %s\nTeeth: %i\nAge: %i\n", f.name, f.species, f.teeth, f.age);
+    printf("Name: %s\nSpecies: %s\nTeeth: %i\nAge: %i\nHe loves %s and work out %.1f hours per day\n", f.name, f.species, f.teeth, f.age, f.care.food, f.care.exercise_hours);
 }
 
 int main() {
 
-    struct fish snappy = {"Snappy", "Piranha", 69, 4}; 
+    struct fish snappy = {"Snappy", "Piranha", 69, 4, {"Meat", 7.5}}; 
     catalog(snappy);
     label(snappy);
 
     puts("");
     struct fish gnasher = snappy;
+
+    gnasher.name = "Gnasher";
+    gnasher.care.food = "Kelp";
+
     catalog(gnasher);
     label(gnasher);
 
-    printf("Address of Snappy name - \t\t\t%p\nAddress of Gnasher name - \t\t\t%p\n\n", snappy.name, gnasher.name);
-
-    gnasher.name = "Gnasher";
-
-    printf("The address of snappy.name (%s) - \t\t%p\n", snappy.name, snappy.name);
-    printf("The address of gnasher.name (%s) - \t%p\n\n", gnasher.name, gnasher.name);
-
-    printf("Age of %s is %i at address %p\n", snappy.name, snappy.age, &snappy.age);
-    printf("Age of %s is %i at address %p\n\n", gnasher.name, gnasher.age, &gnasher.age);
-
-    printf("Size of Snappy struct is  %i\n", sizeof(snappy));
-    printf("Size of Gnasher struct is %i\n", sizeof(gnasher));
+    printf("\n%s at address %p\n", snappy.care.food, snappy.care.food);
+    printf("%s at address %p\n", gnasher.care.food, gnasher.care.food);
 
     return 0;
 }
