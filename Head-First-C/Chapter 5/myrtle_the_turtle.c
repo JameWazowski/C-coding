@@ -13,7 +13,7 @@ void happy_birthday(turtle t) {
 }
 
 void pointer_happy_birthday(turtle *t) {
-    t->age = t->age + 1;
+    t->age = t->age + 1;  // or (*t).age
     printf("This is a result from pointer_happy_birthday function:\n");
     printf("Happy Birthday %s! You are now %i years old!\n\n", t->name, t->age);
 }
