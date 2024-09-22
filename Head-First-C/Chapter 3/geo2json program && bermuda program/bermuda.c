@@ -14,3 +14,5 @@ int main() {
 
     return 0;
 }
+
+// (bermuda | geo2json) < spooky.csv > output_for_bermuda.json
