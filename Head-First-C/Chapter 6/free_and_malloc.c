@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct island {
     char *name;
@@ -12,16 +13,15 @@ island* create(char *);
 void display(island *);
 
 int main() {
-    char name1[80];
-    char name2[80];
+    char name[80];
 
     printf("Please, enter the first Island\'s name: ");
-    fgets(name1, 80, stdin);
-    island *p_island0 = create(name1);
+    fgets(name, 80, stdin);
+    island *p_island0 = create(name);
 
     printf("Please, enter the second Island\'s name: ");
-    fgets(name2, 80, stdin);
-    island *p_island1 = create(name2);
+    fgets(name, 80, stdin);
+    island *p_island1 = create(name);
     
     p_island0->next = p_island1;
 
@@ -35,7 +35,7 @@ int main() {
 
 island* create(char *name) {
     island *i = malloc(sizeof(island));
-    i->name = name;
+    i->name = strdup(name);
     i->opens = "09:00";
     i->closes = "17:00";
     i->next = NULL;
