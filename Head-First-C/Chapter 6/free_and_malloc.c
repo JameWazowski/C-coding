@@ -11,6 +11,8 @@ typedef struct island {
 
 island* create(char *);
 void display(island *);
+char* allocation(char *);
+void display_island_name(char *);
 
 int main() {
     char name[80];
@@ -26,6 +28,10 @@ int main() {
     p_island0->next = p_island1;
 
     display(p_island0);
+
+    printf("Name of island (%p) is allocated at %p\n", p_island0->name, allocation(p_island0->name));
+    display_island_name(p_island0->name);
+    printf("p_island0 = %p\n", p_island0);
 
     free(p_island0);
     free(p_island1);
@@ -48,6 +54,7 @@ void display(island *start) {
 
     for (; i != NULL; i = i->next) {
         printf("Name: %sOpens: %s\nCloses: %s\n", i->name, i->opens, i->closes);
+        printf("Island have his address - %p\n", i);
         printf("Island have an address to the next address - ");
 
         if (i->next != NULL)
@@ -55,4 +62,14 @@ void display(island *start) {
         else
             printf("NONE\n\n");
     }     
+}
+
+char* allocation(char *point_to) {
+    char *pIslandAllocation = point_to;
+
+    return pIslandAllocation;
+}
+
+void display_island_name(char *point_to_name) {
+    printf("From allocation(p_island0->name): *point_to = %s\n", point_to_name);
 }
