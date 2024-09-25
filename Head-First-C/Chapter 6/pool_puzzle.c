@@ -40,5 +40,5 @@ void display(island *start) {
     island *i = start;
 
     for (; i != NULL; i = i->p_next)
-        printf("Island %s\n%s-%s\n\n", i->name, i->opens, i->closes);
+        printf("%s %s-%s\n", i->name, i->opens, i->closes);
 }
