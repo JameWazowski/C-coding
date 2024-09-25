@@ -6,7 +6,7 @@ typedef struct island {
     char *name;
     char *opens;
     char *closes;
-    struct island *next;
+    struct island *p_next;
 } island;
 
 island* create(char *);
@@ -23,7 +23,7 @@ int main() {
         if (start == NULL)
             start = next;
         if (i != NULL)
-            i->next = next;
+            i->p_next = next;
     }
     display(start);
 }
@@ -33,12 +33,12 @@ island* create(char *name) {
     i->name = strdup(name);
     i->opens = "09:00";
     i->closes = "17:00";
-    i->next = NULL;
+    i->p_next = NULL;
 }
 
 void display(island *start) {
     island *i = start;
 
-    for (; i != NULL; i = i->next)
+    for (; i != NULL; i = i->p_next)
         printf("Island %s\n%s-%s\n\n", i->name, i->opens, i->closes);
 }
