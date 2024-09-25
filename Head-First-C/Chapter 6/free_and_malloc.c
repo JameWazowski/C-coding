@@ -12,7 +12,7 @@ typedef struct island {
 island* create(char *);
 void display(island *);
 void release(island *);
-// Написати функцію, яка буде виводити адреси (вказівники) на всі поля елементу структури "острів"
+void elements_allocation(island *);
 
 int main() {
     char name[80];
@@ -29,7 +29,8 @@ int main() {
 
     display(p_island0);
 
-    printf("p_island0 = %p\n", p_island0);
+    elements_allocation(p_island0);
+    elements_allocation(p_island1);
 
     release(p_island0);
 
@@ -71,4 +72,14 @@ void release(island *start) {
         free(i->name); // Free the name string that was created with strdup()
         free(i);
     }
+}
+
+// Function for display location of each element
+void elements_allocation(island *island_struct) {
+    printf("\nName (%s) is allocated at %p\n", island_struct->name, island_struct->name);
+    printf("Opens (%s) is allocated at %p\n", island_struct->opens, island_struct->opens);
+    printf("Closes (%s) is allocated at %p\n", island_struct->closes, island_struct->closes);
+    
+    if (island_struct->next != NULL)
+        printf("Address to the next struct (%p) is allocated at %p\n", island_struct->next, &island_struct->next);
 }
