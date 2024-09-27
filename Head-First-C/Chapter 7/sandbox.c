@@ -13,23 +13,53 @@ char *ADS[] = {
 };
 
 void find();
+int sports_no_bieber(char *);
+int sports_or_workout(char *);
+int ns_theater(char *);
+int arts_theater_or_dining(char *);
 
 int main() {
 
-    find();
+    puts("\nSports && !Bieber:");
+    find(sports_no_bieber);
+
+    puts("\nSports || Workout:");
+    find(sports_or_workout);
+
+    puts("\nNon-smoking && Theater:");
+    find(ns_theater);
+
+    puts("\nArt || Theater || Dining:");
+    find(arts_theater_or_dining);
 
     return 0;
 }
 
-void find() {
+void find(int (*match)(char *)) {
     int i;
     puts("Search results:");
     puts("------------------------------------");
 
     for (i = 0; i < NUM_ADS; i++) {
-        if (strstr(ADS[i], "sports") && !strstr(ADS[i], "bieber")) {
+        if (match(ADS[i])) {
             printf("%s\n", ADS[i]);
         }
     }
     puts("------------------------------------");
+}
+
+int sports_no_bieber(char *s) {
+    return strstr(s, "sports") && !strstr(s, "bieber");
+}
+
+int sports_or_workout(char *s) {
+    return strstr(s, "sports") || strstr(s, "working out");
+}
+
+int ns_theater(char *s) {
+    return strstr(s, "NS") && strstr(s, "theater");
+}
+
+int arts_theater_or_dining(char *s) {
+    return strstr(s, "art") || strstr(s, "theater") || strstr(s, "dining");
 }
