@@ -12,7 +12,7 @@ int compare_scores_desc(const void*, const void*);
 int compare_areas(const void*, const void*);
 int compare_names(const void*, const void*);
 int compare_areas_desc(const void*, const void*);
-int comare_names_desc(const void*, const void*);
+int compare_names_desc(const void*, const void*);
 
 int main() {
 
