@@ -10,6 +10,8 @@ void dump(response);
 void second_chance(response);
 void marriage(response);
 
+void (*replies[])(response) = {dump, second_chance, marriage};
+
 int main() {
     
     response r[] = {
@@ -17,20 +19,8 @@ int main() {
         {"Matt", SECOND_CHANCE}, {"William", MARRIAGE}
     };
 
-    int i;
-    for (i = 0; i < 4; i++) {
-        switch(r[i].type) {
-            case DUMP:
-                dump(r[i]);
-                break;
-            case SECOND_CHANCE:
-                second_chance(r[i]);
-                break;
-            default:
-                marriage(r[i]);
-        }
-        printf("\n");
-    }
+    for (int i = 0; i < 4; i++)
+        (replies[r[i].type])(r[i]);
 
     return 0;
 }
