@@ -10,7 +10,10 @@ double total(int, ...);
 
 int main() {
 
-    printf("Summary = %.2lf\n", total(4, price(MUDSLIDE), price(FUZZY_NAVEL), price(MONKEY_GLAND), price(ZOMBIE)));
+    printf("Summary of 1 = %.2lf\n", total(4, MUDSLIDE));
+    printf("Summary of 2 = %.2lf\n", total(4, MUDSLIDE, FUZZY_NAVEL));
+    printf("Summary of 3 = %.2lf\n", total(4, MUDSLIDE, FUZZY_NAVEL, MONKEY_GLAND));
+    printf("Summary of 4 = %.2lf\n", total(4, MUDSLIDE, FUZZY_NAVEL, MONKEY_GLAND, ZOMBIE));
 
     return 0;
 }
@@ -32,8 +35,10 @@ double total(int args, ...) {
     va_start(drink_list, args);
     int i;
 
-    for (i = 0; i < args; i++)
-        total += va_arg(drink_list, double);
+    for (i = 0; i < args; i++) {
+        enum drink d = va_arg(drink_list, enum drink);
+        total += price(d);
+    }
 
     va_end(drink_list);
 
