@@ -1,65 +1,54 @@
 #include <stdio.h>
-#include <string.h>
 
-int NUM_ADS = 7;
-char *ADS[] = {
-    "William: SBM GSOH likes sports, TV, dining",
-    "Matt: SWM NS likes art, movies, theater",
-    "Luis: SLM ND likes books, theater, art",
-    "Mike: DWM DS likes trucks, sports and bieber",
-    "Peter: SAM likes chess, working out and art",
-    "Josh: SJM likes sports, movies and theater",
-    "Jed: DBM likes theater, books and dining"
-};
+enum response_type {DUMP, SECOND_CHANCE, MARRIAGE};
+typedef struct {
+    char *name;
+    enum response_type type;
+} response;
 
-void find();
-int sports_no_bieber(char *);
-int sports_or_workout(char *);
-int ns_theater(char *);
-int arts_theater_or_dining(char *);
+void dump(response);
+void second_chance(response);
+void marriage(response);
 
 int main() {
+    
+    response r[] = {
+        {"Mike", DUMP}, {"Luis", SECOND_CHANCE}, 
+        {"Matt", SECOND_CHANCE}, {"William", MARRIAGE}
+    };
 
-    puts("\nSports && !Bieber:");
-    find(sports_no_bieber);
-
-    puts("\nSports || Workout:");
-    find(sports_or_workout);
-
-    puts("\nNon-smoking && Theater:");
-    find(ns_theater);
-
-    puts("\nArt || Theater || Dining:");
-    find(arts_theater_or_dining);
+    int i;
+    for (i = 0; i < 4; i++) {
+        switch(r[i].type) {
+            case DUMP:
+                dump(r[i]);
+                break;
+            case SECOND_CHANCE:
+                second_chance(r[i]);
+                break;
+            default:
+                marriage(r[i]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
 
-void find(int (*match)(char *)) {
-    int i;
-    puts("Search results:");
-    puts("------------------------------------");
-
-    for (i = 0; i < NUM_ADS; i++) {
-        if (match(ADS[i])) {
-            printf("%s\n", ADS[i]);
-        }
-    }
-    puts("------------------------------------");
+void dump(response r) {
+    printf("Dear %s,\n", r.name);
+    puts("Unfortunately your last date contacted us to");
+    puts("say that they will not be seeing you again");
 }
 
-int sports_no_bieber(char *s) {
-    return strstr(s, "sports") && !strstr(s, "bieber");
+void second_chance(response r) {
+    printf("Dear %s,\n", r.name);
+    puts("Good news: your last date has asked us to");
+    puts("arrange another meeting. Please call ASAP.");
 }
 
-int sports_or_workout(char *s) {
-    return strstr(s, "sports") || strstr(s, "working out");
-}
-
-int ns_theater(char *s) {
-    return strstr(s, "NS") && strstr(s, "theater");
-}
-
-int arts_theater_or_dining(char *s) {
-    return strstr(s, "art") || strstr(s, "theater") || strstr(s, "dining");
+void marriage(response r) {
+    printf("Dear %s,\n", r.name);
+    puts("Congratulations! Your last date has contacted");
+    puts("us with a proposal of marriage.");
 }
