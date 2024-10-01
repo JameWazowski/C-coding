@@ -15,7 +15,3 @@ int main() {
 
     return 0;
 }
-
-// gcc -c encrypt.c -o encrypt.o
-// gcc -c checksum.c -o checksum.o
-// gcc main.c encrypt.o checksum.o -o main
