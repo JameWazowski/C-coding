@@ -2,5 +2,15 @@ gcc -c encrypt.c -o encrypt.o
 gcc -c checksum.c -o checksum.o
 gcc main.c encrypt.o checksum.o -o main
 
-Making an archive for object files (encrypt.o && checksum.o)
+Making an archive for object files (encrypt.o && checksum.o) :
 ar -rcs libhfsecurity.a encrypt.o checksum.o
+
+Making a directory "my_libs" in /usr/include/ :
+sudo mkdir my_libs
+
+Put our new archive (libhfsecurity.a) into /usr/include/my_libs :
+sudo mv libhfsecurity.a /usr/include/my_libs
+
+Compile our program using libhfsecurity.a :
+gcc main.c -L/usr/include/my_libs -lhfsecurity -o main
+
